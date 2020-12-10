@@ -11,5 +11,18 @@ console.log(`Test Passed: ${validAnagram('texttwisttime', 'timetwisttext') === t
 
 
 function validAnagram(word1, word2) {
-  return false;
+  const freq = {}
+
+  for(let char of word1.split('')) {
+    freq[char] = (freq[char] || 0) +  1;
+  }
+
+  for(let char of word2.split('')) {
+    freq[char] = (freq[char] || 0) -  1;
+  }
+
+  for(key in freq) {
+    if (freq[key] !== 0) return false;
+  }
+  return true;
 }
