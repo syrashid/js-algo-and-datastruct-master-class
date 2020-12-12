@@ -7,7 +7,7 @@ console.log( {
 })
 
 function countUniqueValues (arr) {
-  // guard clause for 1
+  // guard clause for 0
   if(arr.length === 0) return 0
   // assign pointers & counter
   let counter = 1;
