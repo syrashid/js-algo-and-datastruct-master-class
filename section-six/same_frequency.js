@@ -4,9 +4,7 @@ console.log(`Test Passed: ${sameFrequency(3589578, 5879385) === true}`);
 console.log(`Test Passed: ${sameFrequency(22, 222) === false}`);
 
 function sameFrequency(arg1, arg2) {
-  const digits1 = ("" + arg1).split('');
-  const digits2 = ("" + arg2).split('');
-  return validAnagram(digits1, digits2);
+  return validAnagram(arg1.toString(), arg2.toString());
 }
 
 
