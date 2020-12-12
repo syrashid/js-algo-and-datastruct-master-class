@@ -19,7 +19,7 @@ function validAnagram(word1, word2) {
     freq[char] = (freq[char] || 0) -  1;
   }
 
-  for(key in freq) {
+  for(let key in freq) {
     if (freq[key] !== 0) return false;
   }
   return true;
