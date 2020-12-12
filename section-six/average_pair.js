@@ -7,9 +7,7 @@ function averagePair(arr, target) {
   let left = 0;
   let right = arr.length - 1;
   while(left < right) {
-    if (target === (arr[left] + arr[right])/2.0) {
-      return true;
-    }
+    if (target === (arr[left] + arr[right])/2.0) return true;
     target > (arr[left] + arr[right])/2.0 ? left++ : right--;
   }
   return false;
