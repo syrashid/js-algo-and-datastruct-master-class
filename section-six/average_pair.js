@@ -9,11 +9,8 @@ function averagePair(arr, target) {
   while(left < right) {
     if (target === (arr[left] + arr[right])/2.0) {
       return true;
-    } else if (target > (arr[left] + arr[right])/2.0) {
-      left++;
-    } else {
-      right--;
     }
+    target > (arr[left] + arr[right])/2.0 ? left++ : right--;
   }
   return false;
 }
