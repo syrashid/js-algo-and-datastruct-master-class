@@ -17,10 +17,6 @@ function maxSubarraySum(arr, target) {
   let tempMax = max;
   for(let i = 0; i < arr.length - target; i++) {
     tempMax = tempMax + arr[i + target] - arr[i];
-    console.log('index:', i);
-    console.log("max:", max);
-    console.log('tempmax:', tempMax);
-    console.log('');
     if (tempMax > max) max = tempMax;
   }
   return max;
