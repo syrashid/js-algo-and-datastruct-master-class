@@ -6,9 +6,14 @@ console.log(5, minSubArrayLen([1,4,16,22,5,7,8,9,10],55)) // 5
 console.log(2, minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11)) // 2
 console.log(0, minSubArrayLen([1,4,16,22,5,7,8,9,10],95)) // 0
 
-function minSubArrayLen(arr, target) {
+function minSubArrayLen(arr, max) {
   // sum all elements in the array
+  let windowMax = 0;
+  for(let ele of arr) {
+    windowMax += ele;
+  }
   // return 0 if unable to meet target
+  if (windowMax < max) return 0;
   // create left and right pointers
   // while left and right dont cross over, whittle window down
     // check if taking off left puts you under, react accordingly
