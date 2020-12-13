@@ -8,12 +8,12 @@ function maxSubarraySum(arr, target) {
   // Guard clause
   if (arr.length < target) return null;
 
+  // Build the standing max
   let max = 0;
-  // Build the sliding window max
   for(let ele of arr.slice(0,target)) {
     max += ele;
   }
-  // Iterate over the array to augment the max
+  // Iterate over the array to augment the max based off sliding window
   let tempMax = max;
   for(let i = 0; i < arr.length - target; i++) {
     tempMax += arr[i + target] - arr[i];
