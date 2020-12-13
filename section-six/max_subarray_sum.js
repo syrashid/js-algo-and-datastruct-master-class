@@ -5,5 +5,15 @@ console.log(`Test Passed: ${maxSubarraySum([3,-2,7,-4,1,-1,4,-2,1], 2) === 5}`);
 console.log(`Test Passed: ${maxSubarraySum([2,3], 3) === null}`);
 
 function maxSubarraySum(arr, target) {
+  // Guard clause
+  if (arr.length < target) return null;
 
+  let max = 0;
+  // Build the sliding window max
+  for(let ele of arr.slice(0,target)) {
+    max += ele;
+  }
+  // Iterate over the array to augment the max
+  console.log(max);
+  return max;
 }
