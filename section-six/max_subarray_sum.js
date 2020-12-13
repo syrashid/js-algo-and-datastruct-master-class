@@ -16,7 +16,7 @@ function maxSubarraySum(arr, target) {
   // Iterate over the array to augment the max
   let tempMax = max;
   for(let i = 0; i < arr.length - target; i++) {
-    tempMax = tempMax + arr[i + target] - arr[i];
+    tempMax += arr[i + target] - arr[i];
     if (tempMax > max) max = tempMax;
   }
   return max;
