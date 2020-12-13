@@ -15,8 +15,23 @@ function minSubArrayLen(arr, max) {
   // return 0 if unable to meet target
   if (windowMax < max) return 0;
   // create left and right pointers
+  let left = 0;
+  let right = arr.length - 1;
   // while left and right dont cross over, whittle window down
+  while (left < right) {
     // check if taking off left puts you under, react accordingly
     // check if taking off right puts you under, react accordingly
+    if (windowMax - arr[left] > max) {
+      left++;
+      windowMax = windowMax - arr[left];
+    } else if (windowMax - arr[right] > max) {
+      right--;
+      windowMax = windowMax - arr[right];
+    } else {
+      // break condition if window can no longer be further reduced;
+      break;
+    }
+  }
   // return left - right after  you break out of while loop
+  return right - left;
 }
