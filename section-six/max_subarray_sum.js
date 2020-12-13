@@ -13,11 +13,13 @@ function maxSubarraySum(arr, target) {
   for(let ele of arr.slice(0,target)) {
     max += ele;
   }
+
   // Iterate over the array to augment the max based off sliding window
   let tempMax = max;
   for(let i = 0; i < arr.length - target; i++) {
     tempMax += arr[i + target] - arr[i];
     if (tempMax > max) max = tempMax;
   }
+
   return max;
 }
