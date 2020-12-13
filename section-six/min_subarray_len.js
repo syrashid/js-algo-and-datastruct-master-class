@@ -17,21 +17,23 @@ function minSubArrayLen(arr, max) {
   // create left and right pointers
   let left = 0;
   let right = arr.length - 1;
-  // while left and right dont cross over, whittle window down
-  while (left < right) {
+  let shifted = true;
+  // if window is whittled, continue to whittle
+  while (shifted) {
+    // left or right movement will depend on which one leaves you the greatest windowMax, aka whichever one is smaller will get the hack
     // check if taking off left puts you under, react accordingly
     // check if taking off right puts you under, react accordingly
-    if (windowMax - arr[left] > max) {
-      left++;
+    shifted = false;
+    if (windowMax - arr[left] >= max && arr[right] >=  arr[left]) {
       windowMax = windowMax - arr[left];
-    } else if (windowMax - arr[right] > max) {
-      right--;
+      left++;
+      shifted = true;
+    } else if (windowMax - arr[right] >= max && arr[right] < arr[left]) {
       windowMax = windowMax - arr[right];
-    } else {
-      // break condition if window can no longer be further reduced;
-      break;
+      right--;
+      shifted = true;
     }
   }
-  // return left - right after  you break out of while loop
-  return right - left;
+  // return left - right after  you exit while loop
+  return right - left + 1;
 }
