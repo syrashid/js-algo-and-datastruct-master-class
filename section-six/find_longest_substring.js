@@ -19,10 +19,10 @@ function findLongestSubstring(str) {
   while (left < chars.length) {
     if(unique(window) && right < chars.length) {
       // Grow the window
-      max = (right + 1) - left;
+      if ((right + 1) - left > max) max = (right + 1) - left;
       right++;
       window = chars.slice(left, (right + 1));
-    } else if (false) {
+    } else if (!unique(window)) {
       // Shrink the window
       left++;
       window = chars.slice(left, (right + 1));
@@ -35,21 +35,7 @@ function findLongestSubstring(str) {
   return max;
 }
 
-function buildFreqMap(arr) {
-  const freq = {}
-
-  for(let char of arr) {
-    freq[char] = (freq[char] || 0) +  1;
-  }
-
-  return freq;
-}
-
 function unique(arr) {
   return new Set(arr).size === arr.length;
 }
 
-
-// Window starts with whole string
-// Use set and check if it's equal to string, if not recurse one down going one off the left pointer and one off the right, return when you get the matching one
-// Feels like the complexity of that is greater than O(n)
