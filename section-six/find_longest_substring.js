@@ -7,19 +7,18 @@ console.log('8: ',findLongestSubstring('longestsubstring')); // 8 ubstring
 console.log('6: ',findLongestSubstring('thisishowwedoit')); // 6 wedoit
 
 function findLongestSubstring(str) {
-  // guard clause as needed
-  // build pointer refs to define sliding window & standing max
+  // build pointer refs to define sliding window, max, window, and chars
   let left = 0;
   let right = 0;
   let max = 0;
   let chars = str.split('');
   let window = chars.slice(left, (right + 1));
 
-  // while loop to check through growing window
+  // while loop to check through growing and shrinking window
   while (left < chars.length) {
     if(unique(window) && right < chars.length) {
       // Grow the window
-      if ((right + 1) - left > max) max = (right + 1) - left;
+      max = Math.max(max, (right + 1) - left)
       right++;
       window = chars.slice(left, (right + 1));
     } else if (!unique(window)) {
