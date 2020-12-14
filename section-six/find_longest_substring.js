@@ -7,19 +7,32 @@ console.log('8: ',findLongestSubstring('longestsubstring')); // 8 ubstring
 console.log('6: ',findLongestSubstring('thisishowwedoit')); // 6 wedoit
 
 function findLongestSubstring(str) {
+  // guard clause as needed
   // build pointer refs to define sliding window & standing max
   let left = 0;
   let right = 0;
   let max = 0;
-  chars = str.split('');
+  let chars = str.split('');
+  let window = chars.slice(left, (right + 1));
+
   // while loop to check through growing window
   while (left < chars.length) {
-    // Grow the window
-
-    // Shrink the window
-    // Break as needed
+    if(unique(window) && right < chars.length) {
+      // Grow the window
+      max = (right + 1) - left;
+      right++;
+      window = chars.slice(left, (right + 1));
+    } else if (false) {
+      // Shrink the window
+      left++;
+      window = chars.slice(left, (right + 1));
+    } else {
+      // Break as needed
+      break;
+    }
   }
   // return standing max
+  return max;
 }
 
 function buildFreqMap(arr) {
@@ -30,6 +43,10 @@ function buildFreqMap(arr) {
   }
 
   return freq;
+}
+
+function unique(arr) {
+  return new Set(arr).size === arr.length;
 }
 
 
