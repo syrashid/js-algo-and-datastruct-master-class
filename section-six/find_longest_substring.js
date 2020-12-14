@@ -7,22 +7,19 @@ console.log('8: ',findLongestSubstring('longestsubstring')); // 8 ubstring
 console.log('6: ',findLongestSubstring('thisishowwedoit')); // 6 wedoit
 
 function findLongestSubstring(str) {
-  // Break array into chars and build frequency map
-  const chars = str.split('');
-  const freqMap = buildFreqMap(chars);
-  // Set left and right pointers
+  // build pointer refs to define sliding window & standing max
   let left = 0;
-  let right = chars.length - 1;
-  let shifted = true;
-  // While window can be shifted
-  while (shifted) {
-    // reduce window based on pointer value and frequency map
-    shifted = false;
+  let right = 0;
+  let max = 0;
+  chars = str.split('');
+  // while loop to check through growing window
+  while (left < chars.length) {
+    // Grow the window
 
+    // Shrink the window
+    // Break as needed
   }
-
-  // return diff between left and right pointer
-  return right - left + 1;
+  // return standing max
 }
 
 function buildFreqMap(arr) {
