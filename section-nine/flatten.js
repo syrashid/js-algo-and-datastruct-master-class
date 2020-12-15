@@ -3,7 +3,6 @@ function flatten(arr){
 
   (function flattenRecursive(element) {
     if (Number.isInteger(element)) return compiler.push(element);
-    // iterate over each element, and continue to flatten
     for(let piece of element) {
       flattenRecursive(piece);
     }
