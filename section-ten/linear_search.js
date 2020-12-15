@@ -7,6 +7,7 @@ console.log('-1: ', linearSearch([100], 200)); // -1
 
 function linearSearch(arr, target) {
  for(let i = 0; i < arr.length; i++) {
-  if (arr[i] === target)
+  if (arr[i] === target) return i;
  }
+ return -1;
 }
