@@ -2,7 +2,6 @@ function flatten(arr){
   const compiler = [];
 
   (function flattenRecursive(element) {
-    debugger;
     if (Number.isInteger(element)) return compiler.push(element);
     if (element.length === 0) return;
     // iterate over each element, and continue to flatten
