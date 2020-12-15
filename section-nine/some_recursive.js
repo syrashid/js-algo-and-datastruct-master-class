@@ -9,12 +9,11 @@ console.log('false: ', someRecursive([4,6,8], val => val > 10)); // false
 function someRecursive(arr, callback){
   let returnBool = false;
 
-  function helpRecurse(arr, callback) {
+  (function helpRecurse(arr, callback) {
     if (arr.length === 0) return;
     if (callback(arr[0])) returnBool = true;
     helpRecurse(arr.slice(1), callback);
-  }
+  })(arr, callback);
 
-  helpRecurse(arr, callback);
   return returnBool;
 }
