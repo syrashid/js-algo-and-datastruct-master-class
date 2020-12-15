@@ -6,6 +6,15 @@ console.log('true: ', someRecursive([4,6,8,9], isOdd)); // true
 console.log('false: ', someRecursive([4,6,8], isOdd)); // false
 console.log('false: ', someRecursive([4,6,8], val => val > 10)); // false
 
-function someRecursive(){
-  // add whatever parameters you deem necessary - good luck!
+function someRecursive(arr, callback){
+  let returnBool = false;
+
+  function helpRecurse(arr, callback) {
+    if (arr.length === 0) return;
+    if (callback(arr[0])) returnBool = true;
+    helpRecurse(arr.slice(1), callback);
+  }
+
+  helpRecurse(arr, callback);
+  return returnBool;
 }
