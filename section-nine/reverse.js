@@ -1,5 +1,6 @@
-function reverse(){
-  // add whatever parameters you deem necessary - good luck!
+function reverse(str){
+  if (str === '') return '';
+  return str.slice(-1).concat(reverse(str.slice(0,-1)));
 }
 
 console.log('emosewa: ', reverse('awesome')) // 'emosewa'
