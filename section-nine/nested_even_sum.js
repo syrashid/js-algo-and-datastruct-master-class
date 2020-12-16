@@ -1,5 +1,21 @@
-function nestedEvenSum (obj) {
+function nestedEvenSum(obj) {
+  // Establish sum variable
+  let sum = 0;
+  // Iterate through each part of the object
+  for (const key in obj) {
+    if (Number.isInteger(obj[key]) && obj[key] % 2 === 0) sum += obj[key];
+    // Dig thru as necessary
+    if (obj[key] instanceof Object) {
 
+    }
+  }
+
+  function dig(nestObj) {
+
+  }
+
+  // Return sum
+  return sum;
 }
 
 
