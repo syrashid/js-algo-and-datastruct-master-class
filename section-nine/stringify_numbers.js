@@ -1,5 +1,11 @@
 function stringifyNumbers(obj) {
-
+  // Iterate through each part of the object
+  for (const key in obj) {
+    if (Number.isInteger(obj[key])) obj[key] = obj[key].toString();
+    // Recurse as needed
+    if (obj[key] instanceof Object) stringifyNumbers(obj[key]);
+  }
+  return obj;
 }
 
 
