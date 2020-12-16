@@ -1,12 +1,9 @@
 function naiveStringSearch(str, subStr) {
-  strChars = str.split('');
-  subStrChars = subStr.split('');
   count = 0;
-
-  for(let i = 0; i < strChars.length; i++) {
-    for(let j = 0; j < subStrChars.length; j++) {
-      if (strChars[i + j] !== subStrChars[j]) break;
-      if (j === subStrChars.length - 1) count++;
+  for(let i = 0; i < str.length; i++) {
+    for(let j = 0; j < subStr.length; j++) {
+      if (str[i + j] !== subStr[j]) break;
+      if (j === subStr.length - 1) count++;
     }
   }
   return count;
