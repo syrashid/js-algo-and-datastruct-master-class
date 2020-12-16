@@ -2,6 +2,9 @@ function kmpStringSearch(str, pattern) {
 
 }
 
+
+// To see how I build this wonderful array, watch this youtube video below:
+// https://www.youtube.com/watch?v=GTJr8OvyEVQ
 function buildSuffixArray(pattern) {
   arr = [0]
   let i = 1;
