@@ -1,5 +1,8 @@
-function capitalizeWords () {
-  // add whatever parameters you deem necessary - good luck!
+function capitalizeWords (arr) {
+  if (arr.length === 0) return [];
+  let capArr = [arr[0].toUpperCase()];
+  capArr = capArr.concat(capitalizeWords(arr.slice(1)));
+  return capArr;
 }
 
 let words = ['i', 'am', 'learning', 'recursion'];
