@@ -8,7 +8,7 @@ function selectionSort(arr) {
    for(let j = i; j< arr.length; j++) {
     if (arr[mindex] > arr[j]) mindex = j;
    }
-   swap(arr, mindex, i)
+   if (mindex !== i) swap(arr, mindex, i)
  }
  return arr;
 }
