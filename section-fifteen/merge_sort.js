@@ -9,7 +9,6 @@ function merge(arr1, arr2) {
   // while i and j are not at the end
   while (i < arr1.length || j < arr2.length) {
     // check if either are finished, if so push all in
-    debugger;
     if (i >= arr1.length) {
       mergeArr = mergeArr.concat(arr2.slice(j));
       j = arr2.length
