@@ -1,11 +1,12 @@
-console.log(merge([1, 10, 50], [2, 14, 99, 100]));
+//console.log(merge([1, 10, 50], [2, 14, 99, 100]));
+console.log(mergeSort([5, 1, 4, 2, 8, 10, 50, 9, 14, 99, 100]));
+console.log(mergeSort([5, 1, 2]));
 
 function merge(arr1, arr2) {
   // i is for arr1, j is for arr2
   let i = 0;
   let j = 0;
   let mergeArr = [];
-
   // while i and j are not at the end
   while (i < arr1.length || j < arr2.length) {
     // check if either are finished, if so push all in
@@ -27,4 +28,18 @@ function merge(arr1, arr2) {
     }
   }
   return mergeArr;
+}
+
+function split(arr) {
+  return [arr.slice(0, arr.length/2), arr.slice(arr.length/2)]
+}
+
+function mergeSort(arr) {
+  // base case is when you get a single or empty arr, return arr
+  // return merge function that is passed two recursive calls
+  if (arr.length <= 1) return arr;
+  let splitArr = split(arr)
+  let left = splitArr[0];
+  let right = splitArr[1];
+  return merge(mergeSort(left), mergeSort(right));
 }
