@@ -1,4 +1,4 @@
-console.log(insertionSort([5, 1, 4, 2, 8])) // [1, 2, 4, 5, 8]
+console.log(insertionSortSimple([5, 1, 4, 2, 8])) // [1, 2, 4, 5, 8]
 
 function insertionSort(arr) {
   const compiler = [arr[0]];
@@ -17,4 +17,15 @@ function insertionSort(arr) {
     recursiveInsert(recArr.slice(1));
   })(arr.slice(1));
   return compiler;
+}
+
+function insertionSortSimple(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    let current = arr[i];
+    for(var j = i - 1; j >= 0 && arr[j] > current; j--) {
+      arr[j+1] = arr[j];
+    }
+    arr[j+1] = current;
+  }
+  return arr;
 }
