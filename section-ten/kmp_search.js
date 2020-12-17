@@ -1,5 +1,29 @@
 function kmpStringSearch(str, pattern) {
+  const suffArray = buildSuffixArray(pattern);
+  let i = 0;
+  let j = 0;
+  let count = 0;
 
+  while (i < str.length) {
+    if (str[i] === pattern[j]) {
+      if (j === pattern.length - 1) {
+        count++;
+        j = 0;
+        i++;
+      } else {
+        j++;
+        i++;
+      }
+    } else {
+      if (j !== 0) {
+        j = suffArray[j - 1]
+      } else {
+        i++
+      }
+
+    }
+  }
+  return count;
 }
 
 
@@ -29,6 +53,8 @@ function buildSuffixArray(pattern) {
 }
 
 console.log(buildSuffixArray('abcdabca')); // [0, 0, 0, 0, 1, 2, 3, 1]
-console.log(buildSuffixArray('aabaabaaa')); // [0, ]
+console.log(buildSuffixArray('aabaabaaa')); // [0, 1, 0, 1, 2, 3, 4, 5, 2]
+console.log(buildSuffixArray('bxb')); // [0, 1, 0, 1, 2, 3, 4, 5, 2]
 
 console.log("Test Passed: ", kmpStringSearch("wowomgzomgwomgw", "omg") === 3)
+console.log("Test Passed: ", kmpStringSearch("abxabcabcaby", "abcaby") === 1)
