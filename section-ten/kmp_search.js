@@ -1,3 +1,5 @@
+// Both functions in this code use the multi pointer approach
+
 function kmpStringSearch(str, pattern) {
   const suffArray = buildSuffixArray(pattern);
   let i = 0;
