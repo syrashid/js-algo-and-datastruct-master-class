@@ -38,7 +38,8 @@ function mergeSort(arr) {
   // base case is when you get a single or empty arr, return arr
   // return merge function that is passed two recursive calls
   if (arr.length <= 1) return arr;
-  let left = split(arr)[0];
-  let right = split(arr)[1];
+  // THIS NOTATION DOESN'T WORK, THIS ASSIGNS LEFT AND RIGHT TO (THE GLOBAL) THIS AS PROPERTIES AND VALUES
+  // [left, right] = [...split(arr)]
+  let [left, right] = [...split(arr)];
   return merge(mergeSort(left), mergeSort(right));
 }
