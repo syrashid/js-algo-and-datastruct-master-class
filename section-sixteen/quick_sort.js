@@ -23,6 +23,7 @@ function pivot(arr, start = 0, end = arr.length - 1) {
 function quickSort(arr, start = 0, end = arr.length - 1) {
   // base case
   if (end - start <= 0) return;
+
   let pivotInd = pivot(arr, start, end);
   // left subarray
   quickSort(arr, start, pivotInd - 1);
