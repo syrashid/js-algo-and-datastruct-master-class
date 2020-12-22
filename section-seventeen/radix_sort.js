@@ -1,6 +1,6 @@
 console.log("Radix Sort");
 console.log(radixSort([5, 1, 4, 2, 8, 10, 50, 9, 14, 99, 100]));
-console.log(radixSort([5, 1, 2]));
+console.log(radixSort([5, 1, 2, 89, 13465, 2, 4, 18, 394, 20, 21, 238, 8604, 29048, 11,3894, 3]));
 
 console.log("");
 
@@ -25,6 +25,7 @@ console.log("");
 
 console.log("Most Digits");
 console.log('3: ',mostDigits([5, 1, 4, 2, 8, 10, 50, 9, 14, 99, 100]));
+
 
 function radixSort(arr) {
   // Figure out the number of digits/ times to iterate
