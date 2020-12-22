@@ -34,13 +34,13 @@ function radixSort(arr) {
   for(let i = 0; i < iter; i++) {
     // Create buckets 0 - 9
     const buckets = Array.from(Array(10), () => []);
-    for(let j = 0; j < 10; j++) {
+    for(let j = 0; j < result.length; j++) {
       // Place numbers in said buckets based off digit
-
+      const bucketInd = getDigit(result[j], i);
+      buckets[bucketInd].push(result[j]);
     }
-
-
     // Flatten array and repeat process
+    result = buckets.flat();
   }
 
   // return result
