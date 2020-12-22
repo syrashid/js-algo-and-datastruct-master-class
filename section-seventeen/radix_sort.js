@@ -17,4 +17,5 @@ function radixSort(arr) {
 function getDigit(num,place) {
   // numString = num.toString()
   // return parseInt(numString[numString.length - place - 1]) || 0
+  return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10
 }
