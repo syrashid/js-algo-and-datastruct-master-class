@@ -15,5 +15,6 @@ function radixSort(arr) {
 }
 
 function getDigit(num,place) {
-  return num.toString('')
+  // numString = num.toString()
+  // return parseInt(numString[numString.length - place - 1]) || 0
 }
