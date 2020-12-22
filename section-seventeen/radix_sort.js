@@ -10,6 +10,10 @@ console.log('0:', getDigit(12345, 5));
 console.log('0:', getDigit(12345, -1));
 console.log('0:', getDigit(12345, 100));
 
+console.log('1:', digitCount(1));
+console.log('2:', digitCount(10));
+console.log('3:', digitCount(100));
+
 function radixSort(arr) {
 
 }
@@ -18,4 +22,8 @@ function getDigit(num,place) {
   // numString = num.toString()
   // return parseInt(numString[numString.length - place - 1]) || 0
   return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10
+}
+
+function digitCount(num) {
+  return parseInt(num).length
 }
