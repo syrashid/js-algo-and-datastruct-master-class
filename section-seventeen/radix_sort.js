@@ -1,6 +1,10 @@
+console.log("Radix Sort");
 console.log(radixSort([5, 1, 4, 2, 8, 10, 50, 9, 14, 99, 100]));
 console.log(radixSort([5, 1, 2]));
 
+console.log("");
+
+console.log("Get Digit");
 console.log('5: ', getDigit(12345, 0));
 console.log('4: ', getDigit(12345, 1));
 console.log('3: ', getDigit(12345, 2));
@@ -10,10 +14,16 @@ console.log('0: ', getDigit(12345, 5));
 console.log('0: ', getDigit(12345, -1));
 console.log('0: ', getDigit(12345, 100));
 
+console.log("");
+
+console.log("Digit Count");
 console.log('1: ', digitCount(1));
 console.log('2: ', digitCount(10));
 console.log('3: ', digitCount(100));
 
+console.log("");
+
+console.log("Most Digits");
 console.log('3: ',mostDigits([5, 1, 4, 2, 8, 10, 50, 9, 14, 99, 100]));
 
 function radixSort(arr) {
@@ -31,5 +41,6 @@ function digitCount(num) {
 }
 
 function mostDigits(arr) {
-
+  let mostDigitCallback = (acc, cur) => Math.max(acc, digitCount(cur));
+  return arr.reduce(mostDigitCallback, 0);
 }
