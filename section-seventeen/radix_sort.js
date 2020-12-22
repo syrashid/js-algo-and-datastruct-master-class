@@ -27,7 +27,24 @@ console.log("Most Digits");
 console.log('3: ',mostDigits([5, 1, 4, 2, 8, 10, 50, 9, 14, 99, 100]));
 
 function radixSort(arr) {
+  // Figure out the number of digits/ times to iterate
+  let iter = mostDigits(arr);
+  let result = arr;
+  // Loop over that many times doing the following
+  for(let i = 0; i < iter; i++) {
+    // Create buckets 0 - 9
+    const buckets = Array.from(Array(10), () => []);
+    for(let j = 0; j < 10; j++) {
+      // Place numbers in said buckets based off digit
 
+    }
+
+
+    // Flatten array and repeat process
+  }
+
+  // return result
+  return result;
 }
 
 function getDigit(num,place) {
