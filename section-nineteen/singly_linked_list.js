@@ -90,7 +90,7 @@ class SinglyLinkedList {
       const pre = this.get(index - 1);
       insert.next = pre.next;
       pre.next = insert;
-      length++;
+      this.length++;
       return true;
     }
   }
@@ -103,7 +103,7 @@ class SinglyLinkedList {
       const prev = this.get(index - 1);
       const removed = prev.next
       prev.next = removed.next;
-      length--;
+      this.length--;
       return true;
     }
   }
