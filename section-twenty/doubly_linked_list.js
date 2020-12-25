@@ -104,4 +104,21 @@ class DoublyLinkedList {
       return true;
     }
   }
+
+  remove(index) {
+    if (index < 0 || index > this.length) return false;
+    else if ( index === 0 ) return !!this.shift;
+    else if ( index === this.length) return !!this.pop;
+    else {
+      const pre = this.get(index - 1);
+      pre.next = pre.next.next;
+      pre.next.prev = pre;
+      this.length--;
+      return true;
+    }
+  }
+
+  reverse() {
+
+  }
 }
