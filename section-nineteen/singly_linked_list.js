@@ -80,6 +80,20 @@ class SinglyLinkedList {
     }
     return false;
   }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    else if ( index === 0 ) return !!this.unshift(val);
+    else if ( index === this.length) return !!this.push(val);
+    else {
+      const insert = new Node(val);
+      const pre = this.get(index - 1);
+      insert.next = pre.next;
+      pre.next = insert;
+      length++;
+      return true;
+    }
+  }
 }
 
 var list = new SinglyLinkedList()
