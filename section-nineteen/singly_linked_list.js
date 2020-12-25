@@ -71,4 +71,21 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  set(index, value) {
+    const setNode = this.get(index);
+    if(setNode) {
+      setNode.value = value;
+      return true;
+    }
+    return false;
+  }
 }
+
+var list = new SinglyLinkedList()
+
+list.push("HELLO")
+list.push("GOODBYE")
+list.push("!")
+list.push("<3")
+list.push(":)")
