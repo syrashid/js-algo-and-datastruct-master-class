@@ -27,10 +27,17 @@ class SinglyLinkedList {
 
   pop(){
     if (this.length === 0) return undefined;
-    pre = head;
-    while(!pre.next.next){
-      pre = pre.next;
+    if (this.length === 1) {
+      const node = this.head;
+      this.head = null;
+      this.tail = null;
+      return this.head
+    } else {
+      let pre = this.head;
+      while(!pre.next.next){
+        pre = pre.next;
+      }
+      return pre;
     }
-    return pre;
   }
 }
