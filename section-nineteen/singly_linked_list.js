@@ -109,7 +109,6 @@ class SinglyLinkedList {
   }
 
   reverse() {
-    // Edge cases for 0 and 1
     if (!this.head) return this;
 
     this.tail = this.head;
