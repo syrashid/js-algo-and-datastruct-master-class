@@ -6,6 +6,7 @@ class Node {
 }
 
 class SinglyLinkedList {
+
   constructor(){
     this.head = null;
     this.tail = null;
@@ -29,13 +30,36 @@ class SinglyLinkedList {
     if (!this.head) return undefined;
     let current = this.head;
     let pre = current;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    }
     while (current.next){
       pre = current;
       current = current.next;
     }
-    length--;
+    this.length--;
     pre.next = null;
     this.tail = pre;
     return current;
+  }
+
+  shift() {
+    if (!this.head) return undefined;
+    const oldHead = this.head;
+    this.head = oldHead.next;
+    oldHead.next = null;
+    this.length--;
+    if (this.length === 0) this.tail = null;
+    return oldHead;
+  }
+
+  unshift(val) {
+    const node = new Node(val);
+    node.next = this.head;
+    this.length++;
+    this.head = node;
+    if (this.length === 1) this.tail = node;
+    return this;
   }
 }
