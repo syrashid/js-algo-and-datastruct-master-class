@@ -110,18 +110,26 @@ class SinglyLinkedList {
 
   reverse() {
     // Edge cases for 0 and 1
-    for(let i = 0; i < this.length; i++) {
-      this.tail = this.head;
+    if (!this.head) return this;
 
+    this.tail = this.head;
+    let prevNode = this.tail;
+    let currentNode = prevNode;
+    let nextNode = currentNode.next;
+    currentNode.next = null;
+    while(nextNode) {
+      currentNode = nextNode;
+      nextNode = currentNode.next;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
     }
+    this.head = currentNode;
     return this;
   }
 }
 
 var list = new SinglyLinkedList()
 
-list.push("HELLO")
-list.push("GOODBYE")
-list.push("!")
-list.push("<3")
-list.push(":)")
+list.push("A")
+
+console.log(list.reverse());
