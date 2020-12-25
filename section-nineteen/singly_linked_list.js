@@ -31,13 +31,16 @@ class SinglyLinkedList {
       const node = this.head;
       this.head = null;
       this.tail = null;
-      return this.head
+      length--;
+      return node;
     } else {
       let pre = this.head;
-      while(!pre.next.next){
+      while(pre.next.next){
         pre = pre.next;
       }
-      return pre;
+      this.tail = pre;
+      length--;
+      return pre.next;
     }
   }
 }
