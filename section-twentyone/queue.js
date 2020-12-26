@@ -35,7 +35,4 @@ class Stack {
     if (this.size === 0) this.last = null;
     return popped.value;
   }
-
-
-
 }
