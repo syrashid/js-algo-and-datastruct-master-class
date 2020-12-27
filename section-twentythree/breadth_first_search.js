@@ -63,4 +63,9 @@ tree.insert(20);
 tree.insert(3);
 tree.insert(8);
 
-console.log(tree);
+depth_first_search(tree);
+
+function depth_first_serach(tree) {
+  console.log(tree.root);
+}
+
