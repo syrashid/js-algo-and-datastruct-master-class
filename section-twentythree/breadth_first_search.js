@@ -54,6 +54,39 @@ class BinarySearchTree {
   }
 }
 
+class Queue {
+
+  constructor(){
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+
+  enqueue(val){
+    const node = new Node(val);
+    if (!this.first) {
+      this.first = node;
+      this.last = node;
+    } else {
+      this.last.next = node;
+      this.last = node;
+    }
+    this.size++;
+    return this;
+  }
+
+  dequeue() {
+    if (!this.first) return null;
+    const popped = this.first;
+    this.first = popped.next;
+    popped.next = null;
+    this.size--;
+    if (this.size === 0) this.last = null;
+    return popped.value;
+  }
+}
+
+
 
 const tree = new BinarySearchTree();
 tree.insert(10);
@@ -65,7 +98,7 @@ tree.insert(8);
 
 depth_first_search(tree);
 
-function depth_first_serach(tree) {
-  console.log(tree.root);
+function depth_first_search(tree) {
+  const
 }
 
