@@ -66,13 +66,12 @@ console.log(depth_first_search_pre(tree));
 
 function depth_first_search_pre(tree) {
   const visited = [];
-  let current = tree.root;
 
   (function traverse(node) {
     visited.push(node.value);
     if (node.left) traverse(node.left);
     if (node.right) traverse(node.right);
-  })(current);
+  })(tree.root);
 
   return visited;
 }
