@@ -38,4 +38,18 @@ class BinarySearchTree {
     }
     return this;
   }
+
+  find(val){
+    let comparison = this.root;
+    while(comparison) {
+      if (val === comparison.value) {
+        return true;
+      } else if (val > comparison.value) {
+        comparison = comparison.right;
+      } else {
+        comparison = comparison.left;
+      }
+    }
+    return false;
+  }
 }
