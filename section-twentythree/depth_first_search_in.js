@@ -71,7 +71,6 @@ function depth_first_search_in(tree) {
     if (node.left) traverse(node.left);
     visited.push(node.value);
     if (node.right) traverse(node.right);
-
   })(tree.root);
 
   return visited;
