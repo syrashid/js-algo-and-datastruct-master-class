@@ -43,7 +43,7 @@ class BinarySearchTree {
     let comparison = this.root;
     while(comparison) {
       if (val === comparison.value) {
-        return true;
+        return comparison;
       } else if (val > comparison.value) {
         comparison = comparison.right;
       } else {
