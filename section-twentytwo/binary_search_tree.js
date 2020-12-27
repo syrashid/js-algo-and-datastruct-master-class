@@ -16,6 +16,7 @@ class BinarySearchTree {
     if(this.root) {
       let comparison = this.root;
       while(true){
+        if(node.value === comparison.value) return undefined;
         if (comparison.value > node.value) {
           if (comparison.left) {
             comparison = comparison.left;
