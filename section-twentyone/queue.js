@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class Stack {
+class Queue {
 
   constructor(){
     this.first = null;
