@@ -62,8 +62,7 @@ class Queue {
     this.size = 0;
   }
 
-  enqueue(val){
-    const node = new Node(val);
+  enqueue(node){
     if (!this.first) {
       this.first = node;
       this.last = node;
@@ -82,7 +81,11 @@ class Queue {
     popped.next = null;
     this.size--;
     if (this.size === 0) this.last = null;
-    return popped.value;
+    return popped;
+  }
+
+  isEmpty() {
+    return this.size === 0;
   }
 }
 
@@ -96,9 +99,20 @@ tree.insert(20);
 tree.insert(3);
 tree.insert(8);
 
-depth_first_search(tree);
+console.log(breadth_first_search(tree));
 
-function depth_first_search(tree) {
-  const
+function breadth_first_search(tree) {
+  const queue = new Queue();
+  const visited = [];
+
+  queue.enqueue(tree.root);
+
+  while(!queue.isEmpty()) {
+    const current = queue.dequeue();
+    visited.push(current.value);
+    if (current.left) queue.enqueue(current.left);
+    if (current.right) queue.enqueue(current.right);
+  }
+  return visited;
 }
 
