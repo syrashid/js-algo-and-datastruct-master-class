@@ -11,9 +11,9 @@ class MaxBinaryHeap {
   remove() {
     if (this.values.length === 0) return undefined;
     this.swap(0, this.values.length - 1);
-    let removed = this.values.pop();
+    let max = this.values.pop();
     this.trickle();
-    return removed;
+    return max;
   }
 
   // Private methods (not really)
