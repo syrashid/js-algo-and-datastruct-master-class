@@ -10,13 +10,13 @@ class PriorityQueue {
     this.elements = [];
   }
 
-  insert(value, priority) {
+  enqueue(value, priority) {
     let newNode = new Node(value, priority);
     this.elements.push(newNode);
     if (this.elements.length > 1) this.bubble();
   }
 
-  remove() {
+  dequeue() {
     if (this.elements.length === 0) return undefined;
     if (this.elements.length === 1) return this.elements.pop();
     this.swap(0, this.elements.length - 1);
@@ -72,23 +72,23 @@ class PriorityQueue {
 
 
 const pq = new PriorityQueue();
-pq.insert('do homework', 10);
-pq.insert('go to gym', 20);
-pq.insert('random shit', 21);
-pq.insert('listen to music', 15);
-pq.insert('do finances', 3);
-pq.insert('eat something', 0);
+pq.enqueue('do homework', 10);
+pq.enqueue('go to gym', 20);
+pq.enqueue('random shit', 21);
+pq.enqueue('listen to music', 15);
+pq.enqueue('do finances', 3);
+pq.enqueue('eat something', 0);
 
 console.log(pq.elements);
-pq.remove();
+pq.dequeue();
 console.log(pq.elements);
-pq.remove();
+pq.dequeue();
 console.log(pq.elements);
-pq.remove();
+pq.dequeue();
 console.log(pq.elements);
-pq.remove();
+pq.dequeue();
 console.log(pq.elements);
-pq.remove();
+pq.dequeue();
 console.log(pq.elements);
-pq.remove();
+pq.dequeue();
 console.log(pq.elements);
