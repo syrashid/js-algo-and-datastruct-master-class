@@ -8,7 +8,7 @@ class Graph {
     }
 
     addEdge(vtx1, vtx2) {
-      if (this.adjacencyList.has(vtx1) && this.adjacencyList.has(vtx2)) {
+      if (this._areValidVtx(vtx1,vtx2)) {
         if (!this.adjacencyList.get(vtx1).includes(vtx2)) {
           this.adjacencyList.get(vtx1).push(vtx2)
         }
@@ -20,6 +20,10 @@ class Graph {
 
     printAdjList() {
       console.log(this.adjacencyList);
+    }
+
+    _areValidVtx(vtx1, vtx2) {
+      return this.adjacencyList.has(vtx1) && this.adjacencyList.has(vtx2)
     }
 }
 
