@@ -3,17 +3,17 @@ class Graph {
         this.adjacencyList = new Map();
     }
 
-    addVertex(vertex) {
-      if (!this.adjacencyList.has(vertex)) this.adjacencyList.set(vertex, []);
+    addVertex(vtx) {
+      if (!this.adjacencyList.has(vtx)) this.adjacencyList.set(vtx, []);
     }
 
-    addEdge(v1, v2) {
-      if (this.adjacencyList.has(v1) && this.adjacencyList.has(v2)) {
-        if (!this.adjacencyList.get(v1).includes(v2)) {
-          this.adjacencyList.get(v1).push(v2)
+    addEdge(vtx1, vtx2) {
+      if (this.adjacencyList.has(vtx1) && this.adjacencyList.has(vtx2)) {
+        if (!this.adjacencyList.get(vtx1).includes(vtx2)) {
+          this.adjacencyList.get(vtx1).push(vtx2)
         }
-        if (!this.adjacencyList.get(v2).includes(v1)) {
-          this.adjacencyList.get(v2).push(v1)
+        if (!this.adjacencyList.get(vtx2).includes(vtx1)) {
+          this.adjacencyList.get(vtx2).push(vtx1)
         }
       }
     }
