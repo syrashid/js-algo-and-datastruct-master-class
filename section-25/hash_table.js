@@ -1,5 +1,3 @@
-
-
 class HashTable {
   constructor(size=53){
     this.keyMap = Array.from(Array(size), () => []);
