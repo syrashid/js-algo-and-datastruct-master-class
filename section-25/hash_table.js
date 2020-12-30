@@ -15,7 +15,29 @@ class HashTable {
     }
     return total;
   }
+
+  set(key, value) {
+    const index = this._hash(key);
+    if (!this.get(key)) this.keyMap[index].push([...arguments])
+  }
+
+  get(key) {
+    const index = this._hash(key);
+    let keyValue = undefined;
+    this.keyMap[index].forEach(element => {
+      if (element[0] === key) keyValue = element;
+    })
+    return keyValue;
+  }
 }
 
 const hash_table = new HashTable();
+
+hash_table.set("pink", "123456");
+console.log(hash_table.keyMap);
+console.log(hash_table.get("pink"));
+console.log(hash_table.get("red"));
+hash_table.set("pink", "123456");
+console.log(hash_table.keyMap);
+hash_table.set("blue", "987654");
 console.log(hash_table.keyMap);
