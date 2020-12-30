@@ -31,6 +31,16 @@ class Graph {
     }
   }
 
+  removeVertex(vtx) {
+    if (this.adjacencyList.has(vtx)) {
+      const vertices = [...this.adjacencyList.get(vtx)]
+      vertices.forEach((vtxEdge) => {
+        this.removeEdge(vtx, vtxEdge);
+      });
+      this.adjacencyList.delete(vtx);
+    }
+  }
+
   printAdjList() {
     console.log(this.adjacencyList);
   }
@@ -50,5 +60,6 @@ g.addEdge('Tokyo', 'Kyoto');
 g.addEdge('Osaka', 'Tokyo');
 g.addEdge('Osaka', 'Kobe');
 g.printAdjList();
-g.removeEdge('Tokyo', 'Kyoto');
+g.removeVertex('Tokyo');
 g.printAdjList();
+
