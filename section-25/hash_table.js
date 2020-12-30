@@ -27,6 +27,24 @@ class HashTable {
     })
     return keyValue;
   }
+
+  keys() {
+    return this.keyMap.reduce((keys, keyValArr) => {
+      keyValArr.forEach((keyVal) => {
+        keys.push(keyVal[0]);
+      })
+      return keys;
+    }, [])
+  }
+
+  values() {
+    return this.keyMap.reduce((vals, keyValArr) => {
+      keyValArr.forEach((keyVal) => {
+        vals.push(keyVal[1]);
+      })
+      return vals;
+    }, [])
+  }
 }
 
 const hash_table = new HashTable();
@@ -39,3 +57,5 @@ hash_table.set("pink", "123456");
 console.log(hash_table.keyMap);
 hash_table.set("blue", "987654");
 console.log(hash_table.keyMap);
+console.log(hash_table.keys());
+console.log(hash_table.values());
