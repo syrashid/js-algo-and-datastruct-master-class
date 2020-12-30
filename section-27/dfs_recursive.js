@@ -45,10 +45,20 @@ class Graph {
     console.log(this.adjacencyList);
   }
 
+  dfs_recursive(vtx) {
+    const visited = new Map();
+    (function recursive_helper(vtxStart) {
+      visited.set(vtx, true);
+    })(vtx);
+    return visited;
+  }
+
   _areValidVtx(vtx1, vtx2) {
     return this.adjacencyList.has(vtx1) && this.adjacencyList.has(vtx2)
   }
 }
+
+
 
 const g = new Graph();
 g.addVertex("A")
@@ -67,3 +77,5 @@ g.addEdge("D","F")
 g.addEdge("E","F")
 
 g.printAdjList();
+
+console.log(g.dfs_recursive());
