@@ -47,13 +47,14 @@ class Graph {
 
   dfs_recursive(vtx) {
     const visited = new Map();
-    (function recursive_helper(vtxStart, g) {
+    const g = this;
+    (function recursive_helper(vtxStart) {
       visited.set(vtxStart, true);
       const neighbors = g._neighborsOf(vtxStart);
       neighbors.forEach((neighbor) => {
         if (!visited.has(neighbor)) recursive_helper(neighbor, g);
       });
-    })(vtx, this);
+    })(vtx);
     return visited;
   }
 
