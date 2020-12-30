@@ -7,13 +7,13 @@ class Graph {
       if (!this.adjacencyList.has(vertex)) this.adjacencyList.set(vertex, []);
     }
 
-    addEdge(vertex1, vertex2) {
-      if (this.adjacencyList.has(vertex1) && this.adjacencyList.has(vertex2)) {
-        if (!this.adjacencyList.get(vertex1).includes(vertex2)) {
-          this.adjacencyList.get(vertex1).push(vertex2)
+    addEdge(v1, v2) {
+      if (this.adjacencyList.has(v1) && this.adjacencyList.has(v2)) {
+        if (!this.adjacencyList.get(v1).includes(v2)) {
+          this.adjacencyList.get(v1).push(v2)
         }
-        if (!this.adjacencyList.get(vertex2).includes(vertex1)) {
-          this.adjacencyList.get(vertex2).push(vertex1)
+        if (!this.adjacencyList.get(v2).includes(v1)) {
+          this.adjacencyList.get(v2).push(v1)
         }
       }
     }
