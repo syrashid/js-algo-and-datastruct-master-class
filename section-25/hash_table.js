@@ -40,7 +40,7 @@ class HashTable {
   values() {
     return this.keyMap.reduce((vals, keyValArr) => {
       keyValArr.forEach((keyVal) => {
-        vals.push(keyVal[1]);
+        if (!vals.includes(keyVal[1])) vals.push(keyVal[1]);
       })
       return vals;
     }, [])
@@ -57,5 +57,6 @@ hash_table.set("pink", "123456");
 console.log(hash_table.keyMap);
 hash_table.set("blue", "987654");
 console.log(hash_table.keyMap);
+hash_table.set("red", "987654");
 console.log(hash_table.keys());
 console.log(hash_table.values());
