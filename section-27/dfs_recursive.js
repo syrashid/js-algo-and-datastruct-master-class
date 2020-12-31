@@ -73,6 +73,21 @@ class Graph {
     }
     return visited;
   }
+
+  bfs_iterative(vtx) {
+    const visited = new Map();
+    const queue = [vtx];
+    let current;
+    while(queue.length > 0) {
+      current = queue.shift();
+      visited.set(current, true);
+      this._neighborsOf(current).forEach((neighbor) => {
+        if (!visited.has(neighbor)) queue.push(neighbor);
+      })
+    }
+    return visited;
+  }
+
   _areValidVtx(vtx1, vtx2) {
     return this.adjacencyList.has(vtx1) && this.adjacencyList.has(vtx2)
   }
@@ -102,4 +117,4 @@ g.addEdge("E","F")
 
 g.printAdjList();
 
-console.log(g.dfs_iterative("A"));
+console.log(g.bfs_iterative("A"));
