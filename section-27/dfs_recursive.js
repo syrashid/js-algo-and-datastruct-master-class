@@ -1,3 +1,5 @@
+
+
 class Graph {
   constructor() {
       this.adjacencyList = new Map();
@@ -52,12 +54,25 @@ class Graph {
       visited.set(vtxStart, true);
       const neighbors = g._neighborsOf(vtxStart);
       neighbors.forEach((neighbor) => {
-        if (!visited.has(neighbor)) recursive_helper(neighbor, g);
+        if (!visited.has(neighbor)) recursive_helper(neighbor);
       });
     })(vtx);
     return visited;
   }
 
+  dfs_iterative(vtx) {
+    const visited = new Map();
+    const stack = [vtx];
+    while(stack.length > 0) {
+      const current = stack.pop();
+      visited.set(current, true);
+      const neighbors = this._neighborsOf(current);
+      neighbors.forEach((neighbor) => {
+        if (!visited.has(neighbor)) stack.push(neighbor);
+      })
+    }
+    return visited;
+  }
   _areValidVtx(vtx1, vtx2) {
     return this.adjacencyList.has(vtx1) && this.adjacencyList.has(vtx2)
   }
@@ -87,4 +102,4 @@ g.addEdge("E","F")
 
 g.printAdjList();
 
-console.log(g.dfs_recursive("A"));
+console.log(g.dfs_iterative("A"));
