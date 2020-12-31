@@ -84,7 +84,7 @@ class WeightedGraph {
     console.log(this.adjacencyList);
   }
 
-  dfs_naive(start,end) {
+  dfs_binary(start,end) {
     // initialization
     const pq = new PriorityQueue();
     const distances = new Map();
@@ -147,5 +147,5 @@ wg.addEdge('D', 'C', 2);
 wg.addEdge('D', 'E', 3);
 wg.addEdge('D', 'F');
 
-console.log(wg.dfs_naive("A", "E"));
+console.log(wg.dfs_binary("A", "E"));
 
