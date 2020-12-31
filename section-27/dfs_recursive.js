@@ -63,11 +63,11 @@ class Graph {
   dfs_iterative(vtx) {
     const visited = new Map();
     const stack = [vtx];
+    let current;
     while(stack.length > 0) {
-      const current = stack.pop();
+      current = stack.pop();
       visited.set(current, true);
-      const neighbors = this._neighborsOf(current);
-      neighbors.forEach((neighbor) => {
+      this._neighborsOf(current).forEach((neighbor) => {
         if (!visited.has(neighbor)) stack.push(neighbor);
       })
     }
