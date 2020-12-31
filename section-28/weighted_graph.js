@@ -12,6 +12,10 @@ class PriorityQueue {
     return this.values.shift();
   };
 
+  isNotEmpty() {
+    return this.values.length > 0;
+  }
+
   _sort() {
     this.values.sort((a, b) => a.priority - b.priority);
   };
@@ -38,12 +42,44 @@ class WeightedGraph {
   }
 
   dfs_naive(start,end) {
+    // initialization
     const pq = new PriorityQueue();
     const distances = new Map();
-    for (var key in this.adjacencyList.keys()) {
+    const previous = {};
+    const visited = [];
+    let path = [];
+    let current, neighbors;
+
+    // set up
+    for (var key of this.adjacencyList.keys()) {
       key === start ? distances.set(key, 0) : distances.set(key, Infinity);
+      pq.enqueue(key, key === start ? 0 : Infinity);
+      previous[key] = null;
     }
-    console.log(distances);
+
+    // algorithm
+    while (pq.isNotEmpty()) {
+      current = pq.dequeue().val;
+      visited.push(current);
+      if (current === end) {
+        while(current) {
+          path.push(current);
+          current = previous[current];
+        }
+        break;
+      }
+      neighbors = this.adjacencyList.get(current);
+      neighbors.forEach((neighbor) => {
+        const candidate = distances.get(current) + neighbor.weight
+        if (candidate < distances.get(neighbor.node)) {
+          distances.set(neighbor.node, candidate);
+          previous[neighbor.node] = current;
+          pq.enqueue(neighbor.node, candidate);
+        }
+      })
+    }
+
+    return path.reverse();
   }
 
   _areValidVtx(vtx1, vtx2) {
@@ -58,7 +94,7 @@ wg.addVertex('C');
 wg.addVertex('D');
 wg.addVertex('E');
 wg.addVertex('F');
-wg.printAdjList();
+
 wg.addEdge('A', 'B', 4);
 wg.addEdge('A', 'C', 2);
 wg.addEdge('B', 'E', 3);
@@ -67,6 +103,6 @@ wg.addEdge('F', 'C', 4);
 wg.addEdge('D', 'C', 2);
 wg.addEdge('D', 'E', 3);
 wg.addEdge('D', 'F');
-wg.printAdjList();
-wg.dfs_naive("A", "E")
+
+console.log(wg.dfs_naive("A", "E"));
 
