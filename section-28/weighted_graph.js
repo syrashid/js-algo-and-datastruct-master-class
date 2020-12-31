@@ -37,19 +37,36 @@ class WeightedGraph {
     console.log(this.adjacencyList);
   }
 
+  dfs_naive(start,end) {
+    const pq = new PriorityQueue();
+    const distances = new Map();
+    for (var key in this.adjacencyList.keys()) {
+      key === start ? distances.set(key, 0) : distances.set(key, Infinity);
+    }
+    console.log(distances);
+  }
+
   _areValidVtx(vtx1, vtx2) {
     return this.adjacencyList.has(vtx1) && this.adjacencyList.has(vtx2)
   }
 }
 
 const wg = new WeightedGraph();
-wg.addVertex('Tokyo');
-wg.addVertex('Kyoto');
-wg.addVertex('Osaka');
-wg.addVertex('Kobe');
+wg.addVertex('A');
+wg.addVertex('B');
+wg.addVertex('C');
+wg.addVertex('D');
+wg.addVertex('E');
+wg.addVertex('F');
 wg.printAdjList();
-wg.addEdge('Tokyo', 'Kyoto');
-wg.addEdge('Osaka', 'Tokyo', 4);
-wg.addEdge('Osaka', 'Kobe', 2);
+wg.addEdge('A', 'B', 4);
+wg.addEdge('A', 'C', 2);
+wg.addEdge('B', 'E', 3);
+wg.addEdge('E', 'F');
+wg.addEdge('F', 'C', 4);
+wg.addEdge('D', 'C', 2);
+wg.addEdge('D', 'E', 3);
+wg.addEdge('D', 'F');
 wg.printAdjList();
+wg.dfs_naive("A", "E")
 
