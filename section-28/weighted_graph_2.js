@@ -104,6 +104,7 @@ class WeightedGraph {
     while (pq.isNotEmpty()) {
       current = pq.dequeue().val;
       visited.push(current);
+
       if (current === end) {
         while(current) {
           path.push(current);
@@ -111,6 +112,7 @@ class WeightedGraph {
         }
         break;
       }
+
       neighbors = this.adjacencyList.get(current);
       neighbors.forEach((neighbor) => {
         const candidate = distances.get(current) + neighbor.weight
