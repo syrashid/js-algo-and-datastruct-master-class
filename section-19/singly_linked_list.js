@@ -125,10 +125,32 @@ class SinglyLinkedList {
     this.head = currentNode;
     return this;
   }
+
+  rotate(n) {
+    if (n < 1) return undefined;
+    let rotation = n % this.length;
+    for(let i = 0; i < rotation; i++) {
+      this.push(this.shift().value);
+    }
+    return this;
+  }
+
+  printList() {
+    let current = this.head;
+    while(current) {
+      console.log(current.value);
+      current = current.next;
+    }
+  }
 }
 
 var list = new SinglyLinkedList()
 
 list.push("A")
+list.push("B")
+list.push("C")
+list.push("D")
+list.push("E")
 
-console.log(list.reverse());
+console.log(list.rotate(5));
+console.log(list.printList());
