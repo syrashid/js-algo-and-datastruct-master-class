@@ -4,7 +4,7 @@ console.log(2, sortedFrequency([1,1,2,2,2,2,3],1)); // 2
 console.log(-1, sortedFrequency([1,1,2,2,2,2,3],4)); // -1
 
 function sortedFrequency(arr, target) {
-
+  console.log(findStart(arr, target), findEnd(arr, target));
 }
 
 function findStart(arr, target) {
