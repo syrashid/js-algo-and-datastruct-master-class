@@ -101,8 +101,21 @@ class BinarySearchTree {
     }
     return largest;
   }
-  secondLargest(){
 
+  largestWithParent() {
+    let largest = this.root;
+    let parent = null;
+    while(largest.right) {
+      parent = largest;
+      largest = largest.right;
+    }
+    return [largest, parent];
+  }
+
+  secondLargest(){
+    // Find largest element
+      // If there is a left child, find the largest element from there
+      // Otherwise return parent
   }
 }
 
@@ -169,7 +182,7 @@ binarySearchTree
 // binarySearchTree.remove(85);
 // console.log(binarySearchTree.root.right.right.value); // 88
 // console.log(binarySearchTree.root.right.right.right.left.left.value); // 89
-console.log(binarySearchTree.largest());
+console.log(binarySearchTree.largestWithParent());
 
 // var binarySearchTree = new BinarySearchTree();
 // binarySearchTree
