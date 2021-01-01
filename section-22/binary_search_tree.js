@@ -81,7 +81,12 @@ class BinarySearchTree {
     } else if (node.left === null && node.right === null) {
       parent.left === node ? parent.left = null : parent.right = null;
     } else if (node.left !== null && node.right !== null) {
-
+      let successor = node.right;
+      while(successor.left) {
+        sucessor = successor.left;
+      }
+      parent.left === node ? parent.left = successor : parent.right = successor;
+      successor.left = node.left;
     } else {
       if (node.left) {
         parent.left === node ? parent.left = node.left : parent.right = node.left;
@@ -102,14 +107,40 @@ class BinarySearchTree {
 // console.log(binarySearchTree.root.left.left.value); // 1
 // console.log(binarySearchTree.root.left.left.right); // null
 
-var binarySearchTree = new BinarySearchTree();binarySearchTree.insert(15).insert(20).insert(10).insert(12).insert(1).insert(5).insert(50);
-binarySearchTree.remove(1);
-console.log(binarySearchTree.root.left.left.value); // 5
-console.log(binarySearchTree.root.left.left.left); // null
-console.log(binarySearchTree.root.left.left.right); // null
-binarySearchTree.remove(20);
-console.log(binarySearchTree.root.right.value); // 50
-console.log(binarySearchTree.root.right.right); // null
-console.log(binarySearchTree.root.right.left); // null
+// var binarySearchTree = new BinarySearchTree();binarySearchTree.insert(15).insert(20).insert(10).insert(12).insert(1).insert(5).insert(50);
+// binarySearchTree.remove(1);
+// console.log(binarySearchTree.root.left.left.value); // 5
+// console.log(binarySearchTree.root.left.left.left); // null
+// console.log(binarySearchTree.root.left.left.right); // null
+// binarySearchTree.remove(20);
+// console.log(binarySearchTree.root.right.value); // 50
+// console.log(binarySearchTree.root.right.right); // null
+// console.log(binarySearchTree.root.right.left); // null
 
-//var binarySearchTree = new BinarySearchTree();binarySearchTree .insert(15) .insert(20) .insert(10) .insert(12) .insert(1) .insert(5) .insert(50) .insert(60) .insert(30) .insert(25) .insert(23) .insert(24) .insert(70);binarySearchTree.remove(10);binarySearchTree.root.left.value // 12binarySearchTree.root.left.left.value // 1binarySearchTree.root.left.left.right.value // 5binarySearchTree.remove(50);binarySearchTree.root.right.value // 20binarySearchTree.root.right.right.value // 60binarySearchTree.root.right.right.left.value // 30var binarySearchTree = new BinarySearchTree();binarySearchTree .insert(22) .insert(49) .insert(85) .insert(66) .insert(95) .insert(90) .insert(100) .insert(88) .insert(93) .insert(89)binarySearchTree.remove(85);binarySearchTree.root.right.right.value // 88binarySearchTree.root.right.right.right.left.left.value // 89
+var binarySearchTree = new BinarySearchTree();
+binarySearchTree
+  .insert(15)
+  .insert(20)
+  .insert(10)
+  .insert(12)
+  .insert(1)
+  .insert(5)
+  .insert(50)
+  .insert(60)
+  .insert(30)
+  .insert(25)
+  .insert(23)
+  .insert(24)
+  .insert(70);
+
+console.log(binarySearchTree);
+binarySearchTree.remove(10);
+console.log(binarySearchTree.root.left.value); // 12
+console.log(binarySearchTree.root.left.left.value); // 1
+console.log(binarySearchTree.root.left.left.right.value); // 5
+binarySearchTree.remove(50);
+console.log(binarySearchTree.root.right.value); // 20
+console.log(binarySearchTree.root.right.right.value); // 60
+console.log(binarySearchTree.root.right.right.left.value); // 30
+
+// var binarySearchTree = new BinarySearchTree();binarySearchTree .insert(22) .insert(49) .insert(85) .insert(66) .insert(95) .insert(90) .insert(100) .insert(88) .insert(93) .insert(89)binarySearchTree.remove(85);binarySearchTree.root.right.right.value // 88binarySearchTree.root.right.right.right.left.left.value // 89
