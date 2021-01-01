@@ -112,7 +112,7 @@ class BinarySearchTree {
     return [largest, parent];
   }
 
-  secondLargest(){
+  secondLargest() {
     // Find largest element
     let [largest, parent] = this.largestWithParent();
     let second;
@@ -128,7 +128,16 @@ class BinarySearchTree {
       // Otherwise return parent
       return parent;
     }
-  }
+  };
+
+  isBalanced() {
+    if (this.root === null) return true;
+
+    const leftHeight = this._height(this.root.left);
+    const rightHeight = this._height(this.root.right);
+
+    return Math.abs(leftHeight - rightHeight) <= 1
+  };
 
   _height(node) {
     if (node === null) {
@@ -252,4 +261,6 @@ binarySearchTree
   .insert(5)
   .insert(50);
 
-console.log(binarySearchTree._height(binarySearchTree.root));
+console.log(binarySearchTree.isBalanced()); // true
+binarySearchTree.remove(50);
+console.log(binarySearchTree.isBalanced()); // false
