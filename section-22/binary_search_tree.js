@@ -52,4 +52,8 @@ class BinarySearchTree {
     }
     return false;
   }
+
+  remove(val){
+    let node = this.find(val);
+  }
 }
