@@ -11,6 +11,7 @@ console.log('Combos: ', coinChange(denominations, 145)); // 622
 console.log('Combos: ', coinChange(denominations, 1451)); // 425663
 console.log('Combos: ', coinChange(denominations, 5000)); // 16892551
 console.log('Combos: ', coinChange(denominations, 8001)); // 68844081
+// console.log('Combos: ', coinChange(denominations, 14511)); // 409222339
 
 function coinChange(denos, amount, idx = 0, memo = new Map()) {
   if (amount < 0) return 0;
@@ -19,7 +20,7 @@ function coinChange(denos, amount, idx = 0, memo = new Map()) {
 
   if (amount > 0 && idx === denos.length) return 0;
 
-  total = coinChange(denos, amount - denos[idx], idx, memo) + coinChange(denos, amount, idx + 1, memo)
+  let total = coinChange(denos, amount - denos[idx], idx, memo) + coinChange(denos, amount, idx + 1, memo)
   memo.set([amount,idx].toString(), total);
   return total;
 }
