@@ -164,10 +164,11 @@ binarySearchTree
   .insert(88)
   .insert(93)
   .insert(89)
+  .insert(97)
 
-binarySearchTree.remove(85);
-console.log(binarySearchTree.root.right.right.value); // 88
-console.log(binarySearchTree.root.right.right.right.left.left.value); // 89
+// binarySearchTree.remove(85);
+// console.log(binarySearchTree.root.right.right.value); // 88
+// console.log(binarySearchTree.root.right.right.right.left.left.value); // 89
 console.log(binarySearchTree.largest());
 
 // var binarySearchTree = new BinarySearchTree();
