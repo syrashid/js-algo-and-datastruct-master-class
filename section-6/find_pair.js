@@ -10,5 +10,10 @@ console.log('Passed: ', findPair([1,3,4,6],-2)); // true
 console.log('Passed: ', findPair([0,1,3,4,6],-2)); // true
 
 function findPair(arr, target) {
-
+  for(let i = 0; i < arr.length; i++) {
+    for(let ii = i + 1; ii < arr.length; ii++) {
+      if (arr[i] - arr[ii] === target || arr[ii] - arr[i] === target) return true;
+    }
+  }
+  return false;
 }
