@@ -76,9 +76,7 @@ class BinarySearchTree {
     // Case 2: Leaf
     // Case 3: Has 2 Children
     // Case 4: Has 1 Child
-    if(!parent) {
-
-    } else if (node.left === null && node.right === null) {
+    if (node.left === null && node.right === null) {
       parent.left === node ? parent.left = null : parent.right = null;
     } else if (node.left !== null && node.right !== null) {
       let successor = node.right;
@@ -133,15 +131,15 @@ class BinarySearchTree {
 //   .insert(24)
 //   .insert(70);
 
-console.log(binarySearchTree);
-binarySearchTree.remove(10);
-console.log(binarySearchTree.root.left.value); // 12
-console.log(binarySearchTree.root.left.left.value); // 1
-console.log(binarySearchTree.root.left.left.right.value); // 5
-binarySearchTree.remove(50);
-console.log(binarySearchTree.root.right.value); // 20
-console.log(binarySearchTree.root.right.right.value); // 60
-console.log(binarySearchTree.root.right.right.left.value); // 30
+// console.log(binarySearchTree);
+// binarySearchTree.remove(10);
+// console.log(binarySearchTree.root.left.value); // 12
+// console.log(binarySearchTree.root.left.left.value); // 1
+// console.log(binarySearchTree.root.left.left.right.value); // 5
+// binarySearchTree.remove(50);
+// console.log(binarySearchTree.root.right.value); // 20
+// console.log(binarySearchTree.root.right.right.value); // 60
+// console.log(binarySearchTree.root.right.right.left.value); // 30
 
 // var binarySearchTree = new BinarySearchTree();
 // binarySearchTree
@@ -175,3 +173,12 @@ binarySearchTree
   .insert(23)
   .insert(24)
   .insert(70);
+
+binarySearchTree.remove(15);
+console.log(binarySearchTree.root.value); // 20
+console.log(binarySearchTree.root.left.left.value); // 1
+console.log(binarySearchTree.root.right.value); // 50
+binarySearchTree.remove(20);
+console.log(binarySearchTree.root.value); // 23
+console.log(binarySearchTree.root.right.left.left.left.value); // 24
+
