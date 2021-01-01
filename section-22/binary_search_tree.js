@@ -72,13 +72,13 @@ class BinarySearchTree {
 
   remove(val){
     let [node, parent] = this.findWithParent(val);
-    // Case 1: Root Removal
-    // Case 2: Leaf
-    // Case 3: Has 2 Children
-    // Case 4: Has 1 Child
+    // Case 1: Leaf
+    // Case 2: Has 2 Children
+    // Case 3: Has 1 Child
     if (node.left === null && node.right === null) {
       parent.left === node ? parent.left = null : parent.right = null;
     } else if (node.left !== null && node.right !== null) {
+      // Find in order successor
       let successor = node.right;
       while(successor.left) {
         successor = successor.left;
