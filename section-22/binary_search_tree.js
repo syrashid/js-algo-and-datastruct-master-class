@@ -129,11 +129,29 @@ class BinarySearchTree {
       return parent;
     }
   }
+
+  _height(node) {
+    if (node === null) {
+      return 0;
+    } else if (node.left === null && node.right === null) {
+      return 1;
+    } else {
+      return Math.max(this._height(node.left), this._height(node.right)) + 1;
+    }
+  }
 }
 
 
 // var binarySearchTree = new BinarySearchTree();
-// binarySearchTree.insert(15).insert(20).insert(10).insert(12).insert(1).insert(5).insert(50);
+// binarySearchTree
+//   .insert(15)
+//   .insert(20)
+//   .insert(10)
+//   .insert(12)
+//   .insert(1)
+//   .insert(5)
+//   .insert(50);
+
 // binarySearchTree.remove(50);
 // console.log(binarySearchTree.root.right.value); // 20
 // console.log(binarySearchTree.root.right.right); // null
@@ -177,28 +195,28 @@ class BinarySearchTree {
 // console.log(binarySearchTree.root.right.right.value); // 60
 // console.log(binarySearchTree.root.right.right.left.value); // 30
 
-var binarySearchTree = new BinarySearchTree();
-binarySearchTree
-  .insert(22)
-  .insert(49)
-  .insert(85)
-  .insert(66)
-  .insert(95)
-  .insert(90)
-  .insert(100)
-  .insert(88)
-  .insert(93)
-  .insert(89)
-  .insert(97)
+// var binarySearchTree = new BinarySearchTree();
+// binarySearchTree
+//   .insert(22)
+//   .insert(49)
+//   .insert(85)
+//   .insert(66)
+//   .insert(95)
+//   .insert(90)
+//   .insert(100)
+//   .insert(88)
+//   .insert(93)
+//   .insert(89)
+//   .insert(97)
 
 // binarySearchTree.remove(85);
 // console.log(binarySearchTree.root.right.right.value); // 88
 // console.log(binarySearchTree.root.right.right.right.left.left.value); // 89
-console.log(binarySearchTree.secondLargest().value); // 97
-binarySearchTree.insert(98);
-console.log(binarySearchTree.secondLargest().value); // 98
-binarySearchTree.insert(101);
-console.log(binarySearchTree.secondLargest().value); // 100
+// console.log(binarySearchTree.secondLargest().value); // 97
+// binarySearchTree.insert(98);
+// console.log(binarySearchTree.secondLargest().value); // 98
+// binarySearchTree.insert(101);
+// console.log(binarySearchTree.secondLargest().value); // 100
 
 // var binarySearchTree = new BinarySearchTree();
 // binarySearchTree
@@ -224,3 +242,14 @@ console.log(binarySearchTree.secondLargest().value); // 100
 // console.log(binarySearchTree.root.value); // 23
 // console.log(binarySearchTree.root.right.left.left.left.value); // 24
 
+var binarySearchTree = new BinarySearchTree();
+binarySearchTree
+  .insert(15)
+  .insert(20)
+  .insert(10)
+  .insert(12)
+  .insert(1)
+  .insert(5)
+  .insert(50);
+
+console.log(binarySearchTree._height(binarySearchTree.root));
